@@ -1,20 +1,22 @@
 .summary-toolbar {
-  background-color: var(--bg-subtle);
-  border-bottom: 1px solid var(--border-default);
+  background-color: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-muted);
+  flex-shrink: 0;
 }
 
 .summary-toolbar__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-2) var(--space-4);
-  min-height: 40px;
+  padding: 0 var(--space-6);
+  min-height: 38px;
+  gap: var(--space-4);
 }
 
 .summary-toolbar__left {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .summary-toolbar__right {
@@ -23,34 +25,43 @@
   gap: var(--space-2);
 }
 
+/* ─── Total count ────────────────────────────────────────────────────────── */
+
+.summary-toolbar__total {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+/* ─── Separator ──────────────────────────────────────────────────────────── */
+
+.summary-toolbar__sep {
+  width: 1px;
+  height: 12px;
+  background-color: var(--border-default);
+  flex-shrink: 0;
+}
+
+/* ─── Stats ──────────────────────────────────────────────────────────────── */
+
 .summary-toolbar__stat {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
 }
 
 .summary-toolbar__stat-value {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);
 }
 
 .summary-toolbar__stat-value--success { color: var(--accent-success); }
 .summary-toolbar__stat-value--warning { color: var(--accent-warning); }
-.summary-toolbar__stat-value--danger { color: var(--accent-danger); }
+.summary-toolbar__stat-value--danger  { color: var(--accent-danger); }
 
 .summary-toolbar__stat-label {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-}
-
-.summary-toolbar__divider {
-  width: 1px;
-  height: 14px;
-  background-color: var(--border-default);
-}
-
-.summary-toolbar__total {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--text-tertiary);
 }

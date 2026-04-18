@@ -1,0 +1,29 @@
+.master-details {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+}
+
+.master-details__master {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.master-details__details {
+  width: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-left: 1px solid var(--border-default);
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  transition: width var(--transition-slow);
+}
+
+.master-details__details--open {
+  width: 360px;
+}

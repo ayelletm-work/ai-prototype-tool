@@ -1,0 +1,18 @@
+export const ENTITY_PAGE_HEADER_TOKENS = {
+  paddingX: 'var(--space-6)',
+  paddingTop: 'var(--space-5)',
+  paddingBottom: 'var(--space-4)',
+  bg: 'var(--bg-surface)',
+  border: 'var(--border-default)',
+  titleSize: 'var(--font-size-2xl)',
+  titleWeight: 'var(--font-weight-semibold)',
+  titleColor: 'var(--text-primary)',
+  titleTracking: 'var(--letter-spacing-tight)',
+  titleLeading: 'var(--line-height-tight)',
+  subtitleSize: 'var(--font-size-base)',
+  subtitleColor: 'var(--text-secondary)',
+  eyebrowSize: 'var(--font-size-xs)',
+  eyebrowWeight: 'var(--font-weight-semibold)',
+  eyebrowColor: 'var(--text-tertiary)',
+  eyebrowTracking: 'var(--letter-spacing-wider)',
+} as const;

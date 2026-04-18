@@ -1,6 +1,5 @@
 export const DETAILS_PANEL_STYLES = {
   root: 'details-panel',
-  open: 'details-panel--open',
   header: 'details-panel__header',
   headerContent: 'details-panel__header-content',
   title: 'details-panel__title',

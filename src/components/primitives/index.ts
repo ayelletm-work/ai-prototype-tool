@@ -18,3 +18,9 @@ export type { HeadingProps } from './Heading';
 
 export { Divider } from './Divider';
 export type { DividerProps } from './Divider';
+
+export { IconSlot } from './IconSlot';
+export type { IconSlotProps, IconSlotSize, IconSlotColor } from './IconSlot';
+
+export { ScrollArea } from './ScrollArea';
+export type { ScrollAreaProps, ScrollDirection } from './ScrollArea';

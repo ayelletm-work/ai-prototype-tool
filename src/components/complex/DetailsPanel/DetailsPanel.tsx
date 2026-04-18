@@ -12,19 +12,26 @@ export function DetailsPanel({
   actions,
 }: DetailsPanelProps) {
   return (
-    <aside
-      className={[DETAILS_PANEL_STYLES.root, open ? DETAILS_PANEL_STYLES.open : ''].filter(Boolean).join(' ')}
+    <div
+      className={DETAILS_PANEL_STYLES.root}
       aria-hidden={!open}
+      aria-label={title ? `${title} details` : 'Details'}
     >
       <div className={DETAILS_PANEL_STYLES.header}>
         <div className={DETAILS_PANEL_STYLES.headerContent}>
           {title && <div className={DETAILS_PANEL_STYLES.title}>{title}</div>}
           {subtitle && <div className={DETAILS_PANEL_STYLES.subtitle}>{subtitle}</div>}
         </div>
-        <button type="button" className={DETAILS_PANEL_STYLES.closeBtn} onClick={onClose} aria-label="Close details">
+        <button
+          type="button"
+          className={DETAILS_PANEL_STYLES.closeBtn}
+          onClick={onClose}
+          aria-label="Close details"
+        >
           ×
         </button>
       </div>
+
       <div className={DETAILS_PANEL_STYLES.body}>
         {fields.length > 0 && (
           <div className={DETAILS_PANEL_STYLES.fields}>
@@ -38,9 +45,8 @@ export function DetailsPanel({
         )}
         {children}
       </div>
-      {actions && (
-        <div className={DETAILS_PANEL_STYLES.actions}>{actions}</div>
-      )}
-    </aside>
+
+      {actions && <div className={DETAILS_PANEL_STYLES.actions}>{actions}</div>}
+    </div>
   );
 }

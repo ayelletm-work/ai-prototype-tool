@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
-import type { FilterConfig, TableColumn, SortConfig, SummaryItem, BulkAction } from '@/types';
+import type { FilterConfig, TableColumn, SortConfig } from '@/types';
+import type { SummaryItem } from '@/components/complex/SummaryToolbar';
+import type { BulkAction } from '@/components/complex/BulkActionToolbar';
 
-export interface EntityScreenProps<T extends Record<string, unknown>> {
+export type { SummaryItem, BulkAction };
+
+export interface EntityScreenProps<T extends object> {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
   actions?: ReactNode;
   tabs?: Array<{ value: string; label: string; count?: number }>;
   activeTab?: string;

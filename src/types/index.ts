@@ -122,3 +122,5 @@ export interface AsyncState<T> {
   loading: boolean;
   error: string | null;
 }
+
+export type BadgeVariant = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'purple';

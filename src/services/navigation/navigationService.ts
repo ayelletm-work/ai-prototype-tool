@@ -1,8 +1,8 @@
 import { NAV_SPACES, getActiveSpace, getActiveItem } from '@/config/navigation';
-import type { NavSpace, NavItem } from '@/types';
+import type { NavSpace, NavItem } from '@/app/navigation/navigation.types';
 
 export const navigationService = {
-  getSpaces(): NavSpace[] {
+  getSpaces(): readonly NavSpace[] {
     return NAV_SPACES;
   },
 

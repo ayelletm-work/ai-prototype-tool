@@ -3,7 +3,7 @@ import type { DataTableProps } from './DataTable.types';
 import { DATA_TABLE_STYLES } from './DataTable.styles';
 import { Spinner } from '@/components/core';
 
-export function DataTable<T extends Record<string, unknown>>({
+export function DataTable<T extends object>({
   columns,
   data,
   loading = false,
@@ -11,7 +11,7 @@ export function DataTable<T extends Record<string, unknown>>({
   onSelect,
   onRowClick,
   activeRowId,
-  getRowId = (row) => String(row['id'] ?? ''),
+  getRowId = (row) => String((row as Record<string, unknown>)['id'] ?? ''),
   sortConfig,
   onSort,
   emptyMessage = 'No items found',

@@ -1,62 +1,58 @@
+/* ─── Entity Screen ─────────────────────────────────────────────────────── */
+
 .entity-screen {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
   background-color: var(--bg-canvas);
 }
 
-.entity-screen__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--space-5) var(--space-6) var(--space-4);
+/* ─── Tabs zone ─────────────────────────────────────────────────────────── */
+
+.entity-screen__tabs-zone {
+  flex-shrink: 0;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-default);
-  flex-shrink: 0;
-  gap: var(--space-4);
 }
 
-.entity-screen__header-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.entity-screen__title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.entity-screen__subtitle {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
-  margin-top: var(--space-1);
-}
-
-.entity-screen__header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  flex-shrink: 0;
-}
+/* ─── Content body (grid: table | details) ──────────────────────────────── */
 
 .entity-screen__body {
-  display: flex;
   flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 0;
   overflow: hidden;
+  min-height: 0;
+  transition: grid-template-columns var(--transition-slow);
 }
 
+.entity-screen__body--details-open {
+  grid-template-columns: 1fr 360px;
+}
+
+/* ─── Table area ─────────────────────────────────────────────────────────── */
+
 .entity-screen__table-area {
-  flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  min-width: 0;
 }
 
-.entity-screen__table-wrapper {
+.entity-screen__table-scroll {
   flex: 1;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/* ─── Details area ───────────────────────────────────────────────────────── */
+
+.entity-screen__details-area {
+  overflow: hidden;
+  border-left: 1px solid var(--border-default);
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
 }

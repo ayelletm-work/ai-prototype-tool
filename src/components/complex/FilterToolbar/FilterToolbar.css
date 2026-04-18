@@ -1,23 +1,27 @@
 .filter-toolbar {
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-default);
+  flex-shrink: 0;
 }
 
 .filter-toolbar__inner {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-6);
+  min-height: 48px;
   flex-wrap: wrap;
 }
+
+/* ─── Search ─────────────────────────────────────────────────────────────── */
 
 .filter-toolbar__search {
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 220px;
   flex: 1;
-  max-width: 360px;
+  min-width: 200px;
+  max-width: 320px;
 }
 
 .filter-toolbar__search-icon {
@@ -31,16 +35,17 @@
 
 .filter-toolbar__search-input {
   width: 100%;
-  height: 32px;
-  padding: 0 var(--space-3) 0 var(--space-8);
-  font-size: var(--font-size-base);
+  height: 34px;
+  padding: 0 var(--space-3) 0 calc(var(--space-3) + 14px + var(--space-2));
+  font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
   color: var(--text-primary);
   background-color: var(--bg-subtle);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   outline: none;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
 }
 
 .filter-toolbar__search-input::placeholder {
@@ -53,6 +58,8 @@
   background-color: var(--bg-surface);
 }
 
+/* ─── Select filters ─────────────────────────────────────────────────────── */
+
 .filter-toolbar__filters {
   display: flex;
   align-items: center;
@@ -61,18 +68,19 @@
 }
 
 .filter-toolbar__filter select {
-  height: 32px;
-  padding: 0 var(--space-6) 0 var(--space-3);
+  height: 34px;
+  padding: 0 var(--space-3);
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
   color: var(--text-primary);
-  background-color: var(--bg-surface);
+  background-color: var(--bg-subtle);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   outline: none;
   cursor: pointer;
   appearance: none;
-  transition: border-color var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  min-width: 120px;
 }
 
 .filter-toolbar__filter select:focus {
@@ -80,21 +88,23 @@
   box-shadow: var(--focus-ring);
 }
 
+/* ─── Clear button ───────────────────────────────────────────────────────── */
+
 .filter-toolbar__reset {
-  height: 32px;
+  height: 34px;
   padding: 0 var(--space-3);
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-medium);
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   background: none;
-  border: 1px solid var(--border-default);
+  border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition: color var(--transition-base);
+  white-space: nowrap;
 }
 
 .filter-toolbar__reset:hover {
-  background-color: var(--bg-subtle);
   color: var(--text-primary);
 }

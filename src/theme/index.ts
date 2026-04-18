@@ -1,16 +1,14 @@
-export const THEMES = {
-  light: 'light',
-  dark: 'dark',
-} as const;
+export { ThemeProvider, useTheme } from './ThemeProvider';
+export type { ThemeMode, ThemeContextValue } from './theme.types';
+export { THEME_MODE, THEME_STORAGE_KEY, THEME_ATTRIBUTE } from './theme.constants';
 
-export type Theme = typeof THEMES[keyof typeof THEMES];
+import type { ThemeMode } from './theme.types';
 
-export function applyTheme(theme: Theme): void {
+// Legacy helpers retained for backward compatibility
+export function applyTheme(theme: ThemeMode): void {
   document.documentElement.setAttribute('data-theme', theme);
 }
 
-export function getSystemTheme(): Theme {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? THEMES.dark
-    : THEMES.light;
+export function getSystemTheme(): ThemeMode {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }

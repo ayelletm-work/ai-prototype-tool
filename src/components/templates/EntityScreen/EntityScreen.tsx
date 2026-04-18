@@ -1,15 +1,17 @@
 import './EntityScreen.css';
 import type { EntityScreenProps } from './EntityScreen.types';
 import { ENTITY_SCREEN_STYLES } from './EntityScreen.styles';
+import { EntityPageHeader } from '@/components/complex/EntityPageHeader';
 import { Tabs } from '@/components/core/Tabs';
 import { FilterToolbar } from '@/components/complex/FilterToolbar';
 import { SummaryToolbar } from '@/components/complex/SummaryToolbar';
 import { BulkActionToolbar } from '@/components/complex/BulkActionToolbar';
 import { DataTable } from '@/components/complex/DataTable';
 
-export function EntityScreen<T extends Record<string, unknown>>({
+export function EntityScreen<T extends object>({
   title,
   subtitle,
+  eyebrow,
   actions,
   tabs,
   activeTab,
@@ -34,22 +36,32 @@ export function EntityScreen<T extends Record<string, unknown>>({
   detailsPanel,
   emptyMessage,
 }: EntityScreenProps<T>) {
+  const detailsOpen = !!activeRowId && !!detailsPanel;
+  const bodyClass = [
+    ENTITY_SCREEN_STYLES.body,
+    detailsOpen ? ENTITY_SCREEN_STYLES.bodyDetailsOpen : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <div className={ENTITY_SCREEN_STYLES.root}>
-      <div className={ENTITY_SCREEN_STYLES.header}>
-        <div className={ENTITY_SCREEN_STYLES.headerContent}>
-          <h1 className={ENTITY_SCREEN_STYLES.title}>{title}</h1>
-          {subtitle && <p className={ENTITY_SCREEN_STYLES.subtitle}>{subtitle}</p>}
-        </div>
-        {actions && (
-          <div className={ENTITY_SCREEN_STYLES.headerActions}>{actions}</div>
-        )}
-      </div>
+      {/* Zone 1 — Page header: title, subtitle, primary actions */}
+      <EntityPageHeader
+        title={title}
+        subtitle={subtitle}
+        eyebrow={eyebrow}
+        actions={actions}
+      />
 
+      {/* Zone 2 — Tabs (optional) */}
       {tabs && onTabChange && (
-        <Tabs items={tabs} value={activeTab ?? tabs[0]?.value ?? ''} onChange={onTabChange} />
+        <div className={ENTITY_SCREEN_STYLES.tabsZone}>
+          <Tabs items={tabs} value={activeTab ?? tabs[0]?.value ?? ''} onChange={onTabChange} />
+        </div>
       )}
 
+      {/* Zone 3 — Filter toolbar (optional) */}
       {filters.length > 0 && onFilterChange && (
         <FilterToolbar
           filters={filters}
@@ -59,6 +71,7 @@ export function EntityScreen<T extends Record<string, unknown>>({
         />
       )}
 
+      {/* Zone 4 — Summary / selection toolbar */}
       <SummaryToolbar
         items={summaryItems}
         actions={summaryActions}
@@ -66,9 +79,10 @@ export function EntityScreen<T extends Record<string, unknown>>({
         selectedCount={selectedIds.length}
       />
 
-      <div className={ENTITY_SCREEN_STYLES.body}>
+      {/* Zone 5 — Content: grid(table | details) */}
+      <div className={bodyClass}>
         <div className={ENTITY_SCREEN_STYLES.tableArea}>
-          <div className={ENTITY_SCREEN_STYLES.tableWrapper}>
+          <div className={ENTITY_SCREEN_STYLES.tableScroll}>
             <DataTable
               columns={columns}
               data={data}
@@ -92,7 +106,9 @@ export function EntityScreen<T extends Record<string, unknown>>({
             />
           )}
         </div>
-        {detailsPanel}
+
+        {/* Details slot — DetailsPanel renders here and owns its open/close */}
+        <div className={ENTITY_SCREEN_STYLES.detailsArea}>{detailsPanel}</div>
       </div>
     </div>
   );

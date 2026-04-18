@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { TableColumn, SortConfig } from '@/types';
 
-export interface DataTableProps<T extends Record<string, unknown>> {
+export interface DataTableProps<T extends object> {
   columns: TableColumn<T>[];
   data: T[];
   loading?: boolean;

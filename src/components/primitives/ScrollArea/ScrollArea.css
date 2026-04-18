@@ -1,0 +1,40 @@
+.scroll-area {
+  position: relative;
+}
+
+.scroll-area--vertical {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-area--horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scroll-area--both {
+  overflow: auto;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+.scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}

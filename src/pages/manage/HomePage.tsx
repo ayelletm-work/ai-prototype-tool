@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Stack } from '@/components/primitives/Stack';
 import { Grid } from '@/components/primitives/Grid';
 import { Surface } from '@/components/primitives/Surface';
@@ -55,7 +54,7 @@ export function HomePage() {
   const activeAgents = agents?.filter((a) => a.status === 'active').length ?? 0;
 
   return (
-    <div style={{ padding: 'var(--space-6)' }}>
+    <div style={{ padding: 'var(--space-6)', height: '100%', overflowY: 'auto' }}>
       <Stack direction="vertical" gap="xl">
         <Stack direction="vertical" gap="xs">
           <Heading as="h1" size="2xl" weight="semibold">Welcome back</Heading>

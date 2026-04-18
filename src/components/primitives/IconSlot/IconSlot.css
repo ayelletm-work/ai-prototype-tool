@@ -1,0 +1,13 @@
+.icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.icon-slot svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}

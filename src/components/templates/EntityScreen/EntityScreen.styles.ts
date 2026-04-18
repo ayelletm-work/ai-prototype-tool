@@ -1,11 +1,9 @@
 export const ENTITY_SCREEN_STYLES = {
   root: 'entity-screen',
-  header: 'entity-screen__header',
-  headerContent: 'entity-screen__header-content',
-  title: 'entity-screen__title',
-  subtitle: 'entity-screen__subtitle',
-  headerActions: 'entity-screen__header-actions',
+  tabsZone: 'entity-screen__tabs-zone',
   body: 'entity-screen__body',
+  bodyDetailsOpen: 'entity-screen__body--details-open',
   tableArea: 'entity-screen__table-area',
-  tableWrapper: 'entity-screen__table-wrapper',
+  tableScroll: 'entity-screen__table-scroll',
+  detailsArea: 'entity-screen__details-area',
 } as const;

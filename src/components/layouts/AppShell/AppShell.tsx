@@ -6,20 +6,15 @@ import { APP_SHELL_STYLES } from './AppShell.styles';
 import { ShellHeader } from '@/components/complex/ShellHeader';
 import { NavigationSidebar } from '@/components/complex/NavigationSidebar';
 import { CoraPanel } from '@/components/complex/CoraPanel';
-import { themeService } from '@/services/theme/themeService';
-import { getActiveSpace } from '@/config/navigation';
+import { useTheme } from '@/theme/ThemeProvider';
+import { getActiveSpace } from '@/app/navigation/navigation.utils';
 
 export function AppShell({ children }: AppShellProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { themeMode, toggleThemeMode } = useTheme();
   const [coraOpen, setCoraOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => themeService.get());
   const activeSpace = getActiveSpace(location.pathname);
-
-  const handleThemeToggle = useCallback(() => {
-    const next = themeService.toggle();
-    setTheme(next);
-  }, []);
 
   const handleCoraToggle = useCallback(() => {
     setCoraOpen((prev) => !prev);
@@ -32,10 +27,10 @@ export function AppShell({ children }: AppShellProps) {
   return (
     <div className={APP_SHELL_STYLES.root}>
       <ShellHeader
-        onThemeToggle={handleThemeToggle}
+        onThemeToggle={toggleThemeMode}
         onCoraToggle={handleCoraToggle}
         coraOpen={coraOpen}
-        currentTheme={theme}
+        currentTheme={themeMode}
       />
       <div className={APP_SHELL_STYLES.body}>
         <div className={APP_SHELL_STYLES.sidebar}>

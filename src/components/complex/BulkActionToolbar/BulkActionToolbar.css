@@ -1,15 +1,15 @@
 .bulk-toolbar {
-  background-color: var(--bg-inverse);
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 52px;
+  background-color: var(--bg-inverse);
   transform: translateY(100%);
   opacity: 0;
+  pointer-events: none;
   transition: transform var(--transition-base), opacity var(--transition-base);
   z-index: 10;
-  pointer-events: none;
 }
 
 .bulk-toolbar--visible {
@@ -23,14 +23,15 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-6);
 }
 
 .bulk-toolbar__count {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--text-inverse);
-  min-width: 100px;
+  white-space: nowrap;
+  min-width: 90px;
 }
 
 .bulk-toolbar__actions {
@@ -41,47 +42,50 @@
 }
 
 .bulk-toolbar__action {
-  height: 32px;
-  padding: 0 var(--space-4);
+  height: 30px;
+  padding: 0 var(--space-3);
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-medium);
   color: var(--text-inverse);
-  background-color: var(--color-gray-700);
-  border: 1px solid var(--color-gray-600);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background-color var(--transition-base);
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  white-space: nowrap;
 }
 
 .bulk-toolbar__action:hover {
-  background-color: var(--color-gray-600);
+  background-color: var(--bg-muted);
 }
 
 .bulk-toolbar__action--danger {
-  color: var(--color-red-400);
-  border-color: var(--color-red-800);
+  color: var(--accent-danger);
+  border-color: var(--accent-danger);
+  background-color: var(--bg-danger);
 }
 
 .bulk-toolbar__action--danger:hover {
-  background-color: var(--color-red-900);
+  background-color: var(--accent-danger-subtle);
 }
 
 .bulk-toolbar__clear {
   margin-left: auto;
-  height: 32px;
+  height: 30px;
   padding: 0 var(--space-3);
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
-  color: var(--color-gray-400);
+  color: var(--text-tertiary);
   background: none;
   border: none;
   cursor: pointer;
   border-radius: var(--radius-md);
   transition: color var(--transition-base);
+  white-space: nowrap;
 }
 
 .bulk-toolbar__clear:hover {
