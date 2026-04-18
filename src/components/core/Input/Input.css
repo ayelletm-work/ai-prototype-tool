@@ -1,0 +1,102 @@
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.input-field--full-width {
+  width: 100%;
+}
+
+.input-field--full-width .input-field__wrapper {
+  width: 100%;
+}
+
+.input-field__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.input-field__wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-field__input {
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  width: 100%;
+}
+
+.input-field__input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-field__input:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.input-field__input:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.input-field__input:disabled {
+  background-color: var(--bg-subtle);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.input-field__input--error {
+  border-color: var(--accent-danger);
+}
+
+.input-field__input--error:focus {
+  border-color: var(--accent-danger);
+  box-shadow: 0 0 0 3px var(--accent-danger-subtle);
+}
+
+.input-field__input--has-left {
+  padding-left: var(--space-8);
+}
+
+.input-field__input--has-right {
+  padding-right: var(--space-8);
+}
+
+.input-field__left-icon,
+.input-field__right-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+.input-field__left-icon {
+  left: var(--space-3);
+}
+
+.input-field__right-icon {
+  right: var(--space-3);
+}
+
+.input-field__error {
+  font-size: var(--font-size-sm);
+  color: var(--text-danger);
+}
+
+.input-field__hint {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}

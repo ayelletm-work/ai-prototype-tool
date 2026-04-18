@@ -1,0 +1,15 @@
+export const DETAILS_PANEL_STYLES = {
+  root: 'details-panel',
+  open: 'details-panel--open',
+  header: 'details-panel__header',
+  headerContent: 'details-panel__header-content',
+  title: 'details-panel__title',
+  subtitle: 'details-panel__subtitle',
+  closeBtn: 'details-panel__close',
+  body: 'details-panel__body',
+  fields: 'details-panel__fields',
+  field: 'details-panel__field',
+  fieldLabel: 'details-panel__field-label',
+  fieldValue: 'details-panel__field-value',
+  actions: 'details-panel__actions',
+} as const;

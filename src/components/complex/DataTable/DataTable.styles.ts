@@ -1,0 +1,18 @@
+export const DATA_TABLE_STYLES = {
+  root: 'data-table',
+  table: 'data-table__table',
+  thead: 'data-table__thead',
+  th: 'data-table__th',
+  thSortable: 'data-table__th--sortable',
+  thCheckbox: 'data-table__th--checkbox',
+  sortIcon: 'data-table__sort-icon',
+  tbody: 'data-table__tbody',
+  tr: 'data-table__tr',
+  trClickable: 'data-table__tr--clickable',
+  trActive: 'data-table__tr--active',
+  trSelected: 'data-table__tr--selected',
+  td: 'data-table__td',
+  tdCheckbox: 'data-table__td--checkbox',
+  empty: 'data-table__empty',
+  loadingRow: 'data-table__loading',
+} as const;
