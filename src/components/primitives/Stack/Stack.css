@@ -1,0 +1,20 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack--horizontal {
+  flex-direction: row;
+}
+
+.stack--vertical {
+  flex-direction: column;
+}
+
+.stack--wrap {
+  flex-wrap: wrap;
+}
+
+.stack--full-width {
+  width: 100%;
+}

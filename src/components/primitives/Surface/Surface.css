@@ -1,0 +1,7 @@
+.surface {
+  background: var(--bg-surface);
+}
+
+.surface--bordered {
+  border: 1px solid var(--border-default);
+}

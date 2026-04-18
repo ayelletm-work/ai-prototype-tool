@@ -1,0 +1,14 @@
+.text {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+}
+
+.text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text--mono {
+  font-family: var(--font-family-mono);
+}

@@ -1,0 +1,65 @@
+import type { AgentEntity } from '@/types';
+
+export const MOCK_AGENTS: AgentEntity[] = [
+  {
+    id: 'agent-1',
+    name: 'Prototype Builder',
+    type: 'builder',
+    status: 'active',
+    description: 'Automatically generates prototype components from specifications',
+    lastRun: '2024-03-15T09:00:00Z',
+    config: {
+      model: 'claude-sonnet-4-6',
+      maxTokens: 4096,
+      temperature: 0.7,
+      outputFormat: 'react-tsx',
+    },
+    createdAt: '2024-02-01T10:00:00Z',
+    updatedAt: '2024-03-15T09:00:00Z',
+  },
+  {
+    id: 'agent-2',
+    name: 'Design Validator',
+    type: 'validator',
+    status: 'active',
+    description: 'Validates designs against the design system tokens and accessibility standards',
+    lastRun: '2024-03-15T08:30:00Z',
+    config: {
+      model: 'claude-sonnet-4-6',
+      checkAccessibility: true,
+      checkTokenCompliance: true,
+      reportLevel: 'warning',
+    },
+    createdAt: '2024-02-05T11:00:00Z',
+    updatedAt: '2024-03-15T08:30:00Z',
+  },
+  {
+    id: 'agent-3',
+    name: 'Pattern Explorer',
+    type: 'explorer',
+    status: 'idle',
+    description: 'Explores and catalogs UI patterns across the prototype library',
+    lastRun: '2024-03-14T17:00:00Z',
+    config: {
+      model: 'claude-sonnet-4-6',
+      catalogDepth: 3,
+      includeVariants: true,
+    },
+    createdAt: '2024-02-10T12:00:00Z',
+    updatedAt: '2024-03-14T17:00:00Z',
+  },
+  {
+    id: 'agent-4',
+    name: 'API Builder',
+    type: 'builder',
+    status: 'error',
+    description: 'Generates mock API endpoints from data contracts',
+    config: {
+      model: 'claude-sonnet-4-6',
+      outputFormat: 'typescript',
+      includeTests: true,
+    },
+    createdAt: '2024-02-15T13:00:00Z',
+    updatedAt: '2024-03-15T07:00:00Z',
+  },
+];
